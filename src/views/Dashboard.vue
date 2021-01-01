@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    Home
+   admin dash
   </div>
 </template>
 
