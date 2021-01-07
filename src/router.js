@@ -17,7 +17,7 @@ export default new Router({
       path: '/dashboard',
       name: 'dashboard',
       // Lazy load of components
-      component: () => import( './views/Dashboard.vue')
+      component: () => import( './views/Dashboard')
     },
     {
       path: '/chat',

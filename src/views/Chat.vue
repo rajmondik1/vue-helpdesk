@@ -1,15 +1,15 @@
 <template>
-  <chat-window/>
+  <support-chat/>
 </template>
 
 <script>
-import ChatWindow from "@/components/chat/ChatWindow";
+import SupportChat from "@/components/chat/SupportChat";
 
 // TODO: Implement vuex
 
 export default {
   components: {
-    ChatWindow
+    SupportChat
   },
   mounted() {
     // this.connect();
