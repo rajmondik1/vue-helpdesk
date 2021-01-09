@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="chat-message">
     <div class="outgoing_msg">
       <Recipient :recipient="message.sender"/>
         <div class="sent_msg">

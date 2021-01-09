@@ -8,7 +8,7 @@
             <button @click="getSessions">Refresh list</button>
           </div>
         </div>
-        <Conversation :active-chat="activeChat"/>
+        <Conversation :active-session="activeSession" :active-chat="activeChat"/>
       </div>
     </div>
   </div>
@@ -25,21 +25,25 @@ export default {
   data() {
     return {
       sessions: [],
-      activeChat: []
+      activeChat: [],
+      activeSession: null
     }
   },
   methods: {
     getSessions() {
       axios.get("http://localhost:8080/session/list").then(res => {
         this.sessions = res.data;
-        console.log(res);
+        if (res.data.length > 0 && res.data[0]) {
+          this.activeSession = res.data[0].id;
+          this.getChat(this.activeSession);
+        }
       })
     },
     getChat(sessionId) {
       if (sessionId) {
+        this.activeSession = sessionId;
         axios.get("http://localhost:8080/chat/list/" + sessionId).then(res => {
           this.activeChat = res.data;
-          console.log(res);
         })
       }
     }
