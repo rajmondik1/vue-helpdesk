@@ -20,9 +20,14 @@ export default new Router({
       component: () => import( './views/Dashboard')
     },
     {
-      path: '/chat',
+      path: '/chat/:name',
       name: 'chat',
       component: () => import('./views/Chat')
+    },
+    {
+      path: '/email',
+      name: 'email',
+      component: () => import('./views/Email')
     }
   ]
 })

@@ -1,5 +1,5 @@
 <template>
-  <support-chat/>
+  <support-chat :email="$route.params.name"/>
 </template>
 
 <script>
@@ -11,7 +11,8 @@ export default {
   components: {
     SupportChat
   },
-  mounted() {
+  created() {
+    console.log(this.$route.params.name);
     // this.connect();
   }
 };

@@ -39,20 +39,20 @@ export default {
   data() {
     return {
       message: null,
-      connected: false,
       name: ''
     };
   },
   props: {
     activeChat: Array,
-    activeSession: String | Number
+    activeSession: String | Number,
+    email: String | null
   },
   methods: {
     send() {
       console.log("Send message:" + this.message);
       if (this.stompClient && this.stompClient.connected) {
         let msg = {
-          sender: "Support",
+          sender: this.email ? this.email : "Support",
           content: this.message,
           session: {id: this.activeSession}
         };
@@ -68,7 +68,6 @@ export default {
       this.stompClient.connect(
           {},
           frame => {
-            this.connected = true;
             // console.log(frame);
 
             this.stompClient.subscribe("/session/" + this.activeSession + "/messages", tick => {
@@ -79,7 +78,6 @@ export default {
           },
           error => {
             console.log(error);
-            this.connected = false;
           }
       );
     },
@@ -95,7 +93,6 @@ export default {
       if (this.stompClient) {
         this.stompClient.disconnect();
       }
-      this.connected = false;
     },
   },
   watch: {
