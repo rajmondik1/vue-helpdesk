@@ -1,5 +1,5 @@
 <template>
-  <support-chat :email="$route.params.name"/>
+    <support-chat :email="$route.params.name"/>
 </template>
 
 <script>

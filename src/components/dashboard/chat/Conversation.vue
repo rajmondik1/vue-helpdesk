@@ -20,8 +20,7 @@
                 type="button"
                 @click="send">
           <i class="fa fa-paper-plane-o"
-             aria-hidden="true"></i>
-          {{ activeChat.length }}
+             aria-hidden="true"></i>>
         </button>
       </div>
     </div>

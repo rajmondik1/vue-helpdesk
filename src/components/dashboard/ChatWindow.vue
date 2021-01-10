@@ -4,7 +4,7 @@
       <div class="inbox_msg">
         <div class="inbox_people">
           <div class="inbox_chat">
-            <ChatTicket @click="getChat" v-for="session in sessions" :key="session.id" :session="session"/>
+            <ChatTicket @click="getChat" @refresh="getSessions" v-for="session in sessions" :key="session.id" :session="session"/>
             <button @click="getSessions">Refresh list</button>
           </div>
         </div>
