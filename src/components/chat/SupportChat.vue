@@ -1,12 +1,11 @@
 <template>
   <div>
-
     <div
         id="main-content"
         class="container"
     >
       <div>
-        <Conversation :email="email" :active-session="session" :active-chat="received_messages"/>
+        <Conversation style="width: 40%; border: 1px solid black" :email="email" :active-session="session" :active-chat="received_messages"/>
       </div>
     </div>
   </div>
@@ -33,6 +32,8 @@ export default {
     connect() {
       this.getToken().then(token => {
         this.session = token;
+      }).catch(() => {
+        this.connect()
       });
     },
     async getToken() {

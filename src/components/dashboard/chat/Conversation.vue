@@ -48,6 +48,8 @@ export default {
   },
   methods: {
     send() {
+      if (!this.message || this.message.length <= 0) return;
+
       console.log("Send message:" + this.message);
       if (this.stompClient && this.stompClient.connected) {
         let msg = {

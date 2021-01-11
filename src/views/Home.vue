@@ -1,6 +1,8 @@
 <template>
   <div class="home">
-    Home
+          <router-link to="/email">Chat</router-link>
+          |
+          <router-link to="/dashboard">Dashboard</router-link>
   </div>
 </template>
 
